@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link
+            href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css"
+            rel="stylesheet"
+        />
+        <title>PREDIKSI KELULUSAN CALON MAHASISWA</title>
+    </head>
+    <body
+        class="h-100 d-flex flex-row justify-content-center align-items-center             
+            p-8
+            min-h-screen
+            bg-gradient-to-r
+            from-red-400
+            to-blue-500
+            text-gray-800
+ "
+    >
+        <div class="d-flex flex-column justify-around bg-white p-16 rounded-lg mt-8">
+            <h3 class="badge bg-primary align-self-start flex-column text-3xl font-bold mb-8">
+                PREDIKSI KELULUSAN CALON MAHASISWA </h3>
+	    
+            <h3 class="text-2xl font-bold mb-8"> Oleh : Kelompok 2 Kelas IN </h3>
+	    <h3 > 1462100228 - Rika Pramudhita</h3>
+	    <h3 > 1462100239 - Audilla Candra Haikala</h3>
+	</div>
+	<div class="flex justify-around bg-white p-16 rounded-lg mt-8">
+	<h3 class="badge bg-primary align-self-start flex-fill text-2xl font-bold mb-8">
+	<form
+                action="{{ url_for('predict') }}"
+                method="post"
+                class="flex flex-col"
+            >
+		<h3>Silahkan masukkan data anda:</h3>
+        <label for="nama" class="mt-4 mb-2"
+                    >Masukkan nama anda: </label
+                >
+		<input type="text" id="nama" name="nama" class="p-4 bg-gray-100 rounded-md" placeholder="cth: Jennie Kim">
+		<label for="tahun" class="mt-4 mb-2"
+                    >Calon mahasiswa tahun: </label
+                >
+			<input type="number" id="tahun" name="tahun" class="p-4 bg-gray-100 rounded-md" placeholder="cth: 2021">
+			  
+			<label for="jeniskelamin" class="mt-4 mb-2">Jenis Kelamin:</label>
+			<select name= "jeniskelamin"
+						id="jeniskelamin"
+						class="p-4 bg-gray-100 rounded-md"
+			>
+			 <option value= "Laki-laki">Laki-laki</option>
+			 <option value= "Perempuan">Perempuan</option>
+			   </select>
+
+			   </select>
+                <label for="Q1" class="mt-4 mb-2"
+                    >Nilai Ujian Kompetensi Dasar</label
+                >
+                <input type="number" id="Q1" name="Q1" class="p-4 bg-gray-100 rounded-md" placeholder="cth: 400" required>
+
+
+                <label for="Q2" class="mt-4 mb-2"
+                    >Nilai TOEFL Prediction</label
+                >
+                <input type="number" id="Q2" name="Q2" class="p-4 bg-gray-100 rounded-md" placeholder="cth: 500" required>
+
+                <label for="Q3" class="mt-4 mb-2"
+                    >Interview</label
+                >
+                <input type="number" id="Q3" name="Q3" class="p-4 bg-gray-100 rounded-md" placeholder="cth: 7" required>
+             
+                <button
+                    type="submit"
+                    class="
+                        flex
+                        justify-center
+                        align-center
+                        mt-8
+                        p-4
+                        bg-gradient-to-r
+                        from-blue-400
+                        to-red-500
+                        text-white
+                        rounded-md
+                    "
+                >
+                    PREDIKSI SEKARANG
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        class="feather feather-arrow-right ml-4"
+                    >
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </form></h3>
+        </div>
+        
+        <div class="d-flex flex-column justify-around bg-white p-16 rounded-lg mt-8">
+            <h3 class="badge bg-primary align-self-start flex-column text-3xl font-bold mb-8">
+	    Prediksi kelulusan anda adalah : </h3>
+            <h2 class="text-5xl font-bold"> {{ output }}</h2>    
+           
+                <h3 class="mt-8"><b>Data diri :</b>
+                    <p>Nama mahasiswa : {{ nama }}</p>
+                    <p>Calon mahasiswa tahun : {{ tahun }}</p>
+                    <p>Jenis kelamin: {{ jeniskelamin }}</p>
+                </h3>
+                <h3 class="mt-8"><b>Dengan sebagai berikut :</b> 
+                    <p>Nilai Ujian Dasar: {{ Q1 }}</p>
+                    <p>Nilai TOEFL: {{ Q2 }}</p>
+                    <p>Nilai Interview: {{ Q3 }}</p>
+
+                </h3>               
+	</div>
+            <div class="flex justify-around bg-white p-16 rounded-lg mt-8">
+                <img
+                    class="h-24 md:h-28"
+                    src="https://ifoxsoft.com/wp-content/uploads/2022/11/Logo-Untag-Surabaya-PNG-IfoxSoft.Com_.webp"
+                    alt="logo-dts"
+                />
+                <img
+                    class="h-24 md:h-28"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Logo_of_Ministry_of_Communication_and_Information_Technology_of_the_Republic_of_Indonesia.svg/604px-Logo_of_Ministry_of_Communication_and_Information_Technology_of_the_Republic_of_Indonesia.svg.png"
+                    alt="logo-kominfo"
+                />
+            </div>
+    </body>
+</html>
